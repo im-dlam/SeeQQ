@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background: #f7f3fc;
+}
+
+/* Task  */
+nav.nav-theme ul {
+    margin: 0;
+    padding:0;
+    background-color: palevioletred;
+    display: flex;
+    list-style: none;
+}
+
+/* Menu */
+nav.nav-theme ul button {
+    padding: 15px 15px;
+    font-weight: bold;
+    color:rgb(66, 61, 61);
+    cursor: pointer;
+    border:none;
+    background-color: palevioletred;
+    transition: background-color 0.15s, color 0.15s;
+}
+button:focus {
+    outline: none;
+}
+nav.nav-theme ul button:hover{
+    background-color:rgb(185, 61, 88);
+    color:white;
+
+}
+nav.nav-theme ul button:active{
+    background-color:rgb(194, 78, 103);
+
+}
+#add-pages {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ece0fa;
+    
+}
+#add-pages form{
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(174, 109, 218, 0.08);
+    display: flex;
+    gap: 12px;
+
+}
+
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+#add-btn,
+.pages form input {
+    padding:8px 16px;
+    outline: none;
+}
+
+#add-btn {
+    background-color: rgb(21, 21, 230);
+    color:white;
+    border:none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#add-btn:hover {
+    background-color: rgb(0, 60, 255);
+}
+#add-btn:active {
+    background-color: rgb(71, 110, 240);
+
+}
