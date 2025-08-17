@@ -3,13 +3,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
 </head>
 <body>
-    <div>
-        <form action="/add" method="post">
-            <input type="text" placeholder="Nhập ghi chú" name="item_note" required>
-            <button type="submit">Add</button>
-        </form>
+    <div class="pages">
+        <nav class="nav-theme">
+            <ul>
+                <button>Trang chủ</button>
+                <button>Ghi chú của tôi</button>
+            </ul>
+        </nav>
+
+        <div id="add-pages">
+            <form action="/add" method="post">
+                <input type="text" placeholder="Nhập ghi chú" name="item_note" required>
+                <button type="submit" id="add-btn">Add</button>
+            </form>
+        </div>
     </div>
+
 </body>
 </html>
