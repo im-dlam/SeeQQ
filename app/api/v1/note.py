@@ -20,5 +20,5 @@ async def add_notes(item_note: Optional[str] = Form(...)):
     return RedirectResponse('/',status_code=302)
 
 @router.get("/my-notes" , status_code=status.HTTP_200_OK)
-async def homes(request: Request):
+async def my_notes(request: Request):
     return template.TemplateResponse('note.html' , {'request':request , 'notes':data})
