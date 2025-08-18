@@ -9,7 +9,7 @@ body {
 }
 
 /* Task  */
-nav.nav-theme ul {
+nav.menu-bar ul {
     margin: 0;
     padding:0;
     background-color: palevioletred;
@@ -18,30 +18,42 @@ nav.nav-theme ul {
 }
 
 /* Menu */
-nav.nav-theme ul button {
+nav.menu-bar ul li {
     padding: 15px 15px;
-    font-weight: bold;
-    color:rgb(66, 61, 61);
-    cursor: pointer;
-    border:none;
-    background-color: palevioletred;
-    transition: background-color 0.15s, color 0.15s;
+
 }
 button:focus {
     outline: none;
 }
-nav.nav-theme ul button:hover{
+nav.menu-bar ul li:hover{
     background-color:rgb(185, 61, 88);
     color:white;
 
 }
-nav.nav-theme ul button:active{
+nav.menu-bar ul li:active{
     background-color:rgb(194, 78, 103);
 
 }
+
+nav.menu-bar li a {
+    text-decoration: none;
+    font-weight: bold;
+    color:rgb(66, 61, 61);
+    cursor: pointer;
+    user-select: none;
+    border:none;
+    transition: background-color 0.15sx, color 0.15s;
+}
+nav.menu-bar ul li:hover,
+nav.menu-bar ul li:hover a {
+    background-color: rgb(185, 61, 88);
+    color: white;
+}
+
 #add-pages {
     flex: 1;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     background: #ece0fa;

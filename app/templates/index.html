@@ -7,18 +7,22 @@
 </head>
 <body>
     <div class="pages">
-        <nav class="nav-theme">
-            <ul>
-                <button>Trang chủ</button>
-                <button>Ghi chú của tôi</button>
+        <nav class="menu-bar">
+            <ul class="menu-list">
+                <li><a>Trang chủ</a></li>
+                <li>
+                    <a href="my-notes">Ghi chú của tôi</a>
+                </li>
             </ul>
         </nav>
 
         <div id="add-pages">
-            <form action="/add" method="post">
-                <input type="text" placeholder="Nhập ghi chú" name="item_note" required>
-                <button type="submit" id="add-btn">Add</button>
-            </form>
+            <div>
+                <form  action="/add" method="post">
+                    <input type="text" placeholder="Nhập ghi chú" name="item_note" required>
+                    <button type="submit" id="add-btn">Add</button>
+                </form>
+            </div>
         </div>
     </div>
 

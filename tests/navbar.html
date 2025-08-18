@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Dropdown Click</title>
+  <style>
+    body {
+      background: #f3f6fb;
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .menu-bar {
+      padding: 15px 0 0 0;
+      background: #f3f6fb;
+    }
+    .menu-list {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 20px;
+      display: flex;
+      gap: 16px;
+    }
+    .menu-list li {
+      color: #989faa;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+    .menu-list li.active,
+    .menu-list li:focus {
+      color: #222;
+    }
+    .menu-list li.has-dropdown::after {
+      content: "▼";
+      margin-left: 2px;
+      font-size: 10px;
+      color: #989faa;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    .menu-list li .dropdown {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 24px;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-radius: 6px;
+      padding: 8px 0;
+      z-index: 100;
+    }
+    .menu-list li.active .dropdown {
+      display: block;
+    }
+    .menu-list li .dropdown a {
+      display: block;
+      padding: 8px 16px;
+      color: #222;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .menu-list li .dropdown a:hover {
+      background: #f3f6fb;
+    }
+  </style>
+</head>
+<body>
+  <nav class="menu-bar">
+    <ul class="menu-list">
+      <li class="has-dropdown">
+        Cấu hình
+        <div class="dropdown">
+          <a href="#">Cấu hình 1</a>
+          <a href="#">Cấu hình 2</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        Kiếm xu
+        <div class="dropdown">
+          <a href="#">Kiếm xu 1</a>
+          <a href="#">Kiếm xu 2</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        Tăng tương tác
+        <div class="dropdown">
+          <a href="#">Tương tác 1</a>
+          <a href="#">Tương tác 2</a>
+        </div>
+      </li>
+      <li>Cài đặt</li>
+      <li>Tặng Xu</li>
+      <li>API</li>
+      <li>FAQs</li>
+      <li class="has-dropdown">
+        Cộng đồng
+        <div class="dropdown">
+          <a href="#">Group 1</a>
+          <a href="#">Group 2</a>
+        </div>
+      </li>
+      <li>Lấy ID</li>
+    </ul>
+  </nav>
+  <script>
+    // Lấy tất cả các mục có dropdown
+    const dropdownParents = document.querySelectorAll('.menu-list li.has-dropdown');
+    // Xử lý click
+    dropdownParents.forEach(parent => {
+      parent.addEventListener('click', function(e) {
+        // Ngăn click vào link bên trong dropdown làm ẩn menu
+        if(e.target.tagName === 'A') return;
+        // Đóng tất cả dropdown khác
+        dropdownParents.forEach(li => {
+          if (li !== parent) li.classList.remove('active');
+        });
+        // Bật/tắt dropdown
+        parent.classList.toggle('active');
+        // Ngăn nổi bọt click lên body
+        e.stopPropagation();
+      });
+    });
+    // Click ra ngoài sẽ đóng dropdown
+    document.body.addEventListener('click', function() {
+      dropdownParents.forEach(li => li.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>

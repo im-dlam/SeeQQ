@@ -13,4 +13,4 @@ app = FastAPI()
 app.include_router(note.router)
 
 if __name__ == '__main__':
-    uvicorn.run(app, reload=True)
+    os.system('uvicorn app.main:app --reload')
