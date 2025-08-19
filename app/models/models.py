@@ -20,4 +20,4 @@ class User(Base):
     username = Column(String)
     password =  Column(String)
 
-    notes = relationship('Blog', back_populates='creator')
+    notes = relationship('Notes', back_populates='creator')
