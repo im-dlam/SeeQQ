@@ -29,6 +29,17 @@ nav a{
     justify-content: center;  /* căn giữa ngang */
     align-items: center;      /* căn giữa dọc */
     min-height: 40vh;         /* hoặc 100vh nếu muốn giữa cả trang */
-    width: 30%;
-    padding:32px;
+    min-width: 30%;
+}
+.label {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size:14px; 
+    color:rgb(97, 94, 94);
+}
+.form-main {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 }
