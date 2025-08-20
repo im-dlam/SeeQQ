@@ -14,6 +14,8 @@ router = APIRouter(
 async def all_notes(db: Session =  Depends(get_db)):
     print(db.query(models.Notes).all())
     return db.query(models.Notes).all()
+
+
 @router.get("/" , status_code=status.HTTP_200_OK)
 async def homes(request: Request , db: Session =  Depends(get_db)):
     data = db.query(models.Notes).all()
@@ -29,7 +31,12 @@ async def add_notes(item_note: Optional[str] = Form(...), db: Session =  Depends
     db.refresh(q)
 
     return RedirectResponse('/',status_code=302)
-
+@router.post('/delete-note' , status_code=status.HTTP_204_NO_CONTENT)
+async def delete_note(note_id: Optional[str] = Form(...),note_content: Optional[str] = Form(...), db: Session = Depends(get_db)):
+    deleting = db.query(models.Notes).filter(models.Notes.id == note_id and models.Notes.note == note_content)
+    deleting.delete(synchronize_session=False)
+    db.commit()
+    return {'status':200}
 @router.get("/my-notes" , status_code=status.HTTP_200_OK)
 async def my_notes(request: Request, db: Session =  Depends(get_db)):
     data = db.query(models.Notes).all()
