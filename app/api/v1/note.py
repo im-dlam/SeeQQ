@@ -10,20 +10,20 @@ template = Jinja2Templates('app/templates')
 router = APIRouter(
     tags=["Notes"]
 )
-data= []
+@router.get('/all-notes' , status_code=status.HTTP_200_OK)
+async def all_notes(db: Session =  Depends(get_db)):
+    print(db.query(models.Notes).all())
+    return db.query(models.Notes).all()
 @router.get("/" , status_code=status.HTTP_200_OK)
 async def homes(request: Request , db: Session =  Depends(get_db)):
-    data.clear()
-    for note in db.query(models.Notes).all():
-        data.append(note.__dict__['note'])
+    data = db.query(models.Notes).all()
     return template.TemplateResponse('index.html' , {'request':request , 'data':data})
 
 
 @router.post('/add' , status_code=status.HTTP_201_CREATED)
 async def add_notes(item_note: Optional[str] = Form(...), db: Session =  Depends(get_db)):
     now_time = datetime.now()
-    user_id = 1
-    q = models.Notes(note=item_note,datetime=now_time,user_id=user_id)
+    q = models.Notes(note=item_note,datetime=now_time)
     db.add(q)
     db.commit()
     db.refresh(q)
@@ -31,5 +31,6 @@ async def add_notes(item_note: Optional[str] = Form(...), db: Session =  Depends
     return RedirectResponse('/',status_code=302)
 
 @router.get("/my-notes" , status_code=status.HTTP_200_OK)
-async def my_notes(request: Request):
+async def my_notes(request: Request, db: Session =  Depends(get_db)):
+    data = db.query(models.Notes).all()
     return template.TemplateResponse('note.html' , {'request':request , 'notes':data})
