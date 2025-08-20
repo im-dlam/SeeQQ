@@ -24,11 +24,10 @@ nav a{
     margin-top: 40px;
     border-radius: 16px;
     box-shadow: 0 4px 24px 0 rgba(34, 34, 68, 0.12);
-              /* 0 1.5px 6px 0 rgba(34, 34, 68, 0.04); */
     display: flex;
-    justify-content: center;  /* căn giữa ngang */
-    align-items: center;      /* căn giữa dọc */
-    min-height: 40vh;         /* hoặc 100vh nếu muốn giữa cả trang */
+    justify-content: center;  
+    align-items: center;     
+    min-height: 40vh;       
     min-width: 30%;
 }
 .label {
@@ -36,10 +35,22 @@ nav a{
     margin-bottom: 10px;
     font-size:14px; 
     color:rgb(97, 94, 94);
+
+}
+.example-label {
+    font-size: 12px;
+    color:gray;
+    margin-top:5px;
+    margin-bottom:20px;
 }
 .form-main {
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-left: 46px;
+    padding-right: 46px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    min-height: 300px;
+}
+
+.form-main input {
+    min-width: 50vh;
 }
