@@ -1,99 +1,34 @@
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
+  background: linear-gradient(135deg, #ffe1ef 0%, #f7f6fd 50%, #d3e9ff 100%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.nav-bar {
     display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-    background: #f7f3fc;
+    gap: 40px;
 }
-
-/* Task  */
-nav.menu-bar ul {
-    margin: 0;
-    padding:0;
-    background-color: palevioletred;
-    display: flex;
-    list-style: none;
-}
-
-/* Menu */
-nav.menu-bar ul li {
-    padding: 15px 15px;
-
-}
-button:focus {
-    outline: none;
-}
-nav.menu-bar ul li:hover{
-    background-color:rgb(185, 61, 88);
-    color:white;
-
-}
-nav.menu-bar ul li:active{
-    background-color:rgb(194, 78, 103);
-
-}
-
-nav.menu-bar li a {
+nav a{
     text-decoration: none;
-    font-weight: bold;
-    color:rgb(66, 61, 61);
-    cursor: pointer;
     user-select: none;
-    border:none;
-    transition: background-color 0.15sx, color 0.15s;
+    font-weight: 500;
+    cursor: pointer;
 }
-nav.menu-bar ul li:hover,
-nav.menu-bar ul li:hover a {
-    background-color: rgb(185, 61, 88);
-    color: white;
-}
-
-#add-pages {
-    flex: 1;
+.card {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: #ece0fa;
-    
-}
-#add-pages form{
-    background: #fff;
-    padding: 32px 24px;
-    border-radius: 12px;
-    box-shadow: 0 2px 16px rgba(174, 109, 218, 0.08);
-    display: flex;
-    gap: 12px;
-
-}
-
-
-.pages {
-    display: flex;
     flex-direction: column;
-    flex: 1;
-    min-height: 0;
 }
-#add-btn,
-.pages form input {
-    padding:8px 16px;
-    outline: none;
-}
-
-#add-btn {
-    background-color: rgb(21, 21, 230);
-    color:white;
-    border:none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-#add-btn:hover {
-    background-color: rgb(0, 60, 255);
-}
-#add-btn:active {
-    background-color: rgb(71, 110, 240);
-
+.form-wrapper {
+    background-color: white;
+    margin-top: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(34, 34, 68, 0.12);
+              /* 0 1.5px 6px 0 rgba(34, 34, 68, 0.04); */
+    display: flex;
+    justify-content: center;  /* căn giữa ngang */
+    align-items: center;      /* căn giữa dọc */
+    min-height: 40vh;         /* hoặc 100vh nếu muốn giữa cả trang */
+    width: 30%;
+    padding:32px;
 }

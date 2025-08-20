@@ -6,25 +6,33 @@
     <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
 </head>
 <body>
-    <div class="pages">
-        <nav class="menu-bar">
-            <ul class="menu-list">
-                <li><a>Trang chủ</a></li>
-                <li>
-                    <a href="my-notes">Ghi chú của tôi</a>
-                </li>
-            </ul>
-        </nav>
+    <nav class="nav-bar">
+        <a class="nav-link" href="">Template</a>
+        <a class="nav-link" href="">Blog</a>
+        <a class="nav-link" href="">FAQ</a>
+        <a class="nav-link" href="">API Docs</a>
+        <a class="nav-link" href="">More Free</a>
+    </nav>
 
-        <div id="add-pages">
-            <div>
-                <form  action="/add" method="post">
-                    <input type="text" placeholder="Nhập ghi chú" name="item_note" required>
-                    <button type="submit" id="add-btn">Add</button>
+    <div class="container">
+        <div class="card">
+            <div class="form-wrapper">
+                <form class="card-form" action="/add">
+                    <div>List name</div>
+                    <input type="text">
+                    <div>Examples: "Groceries", "Project Tasks", "Weekend Plans", etc.</div>
+                    <div>Description (optional)</div>
+                    <input type="text">
+                    <div>
+                        <button>Create</button>
+                    </div>
                 </form>
             </div>
+            <div>
+                <button>Back to home</button>
+            </div>
         </div>
+    
     </div>
-
 </body>
 </html>
