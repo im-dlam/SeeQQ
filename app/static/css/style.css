@@ -27,8 +27,6 @@ nav a{
     display: flex;
     justify-content: center;  
     align-items: center;     
-    min-height: 40vh;       
-    min-width: 30%;
 }
 .label {
     font-weight: 500;
@@ -48,9 +46,14 @@ nav a{
     padding-right: 46px;
     padding-top: 16px;
     padding-bottom: 16px;
-    min-height: 300px;
 }
 
-.form-main input {
-    min-width: 50vh;
+.label-name {
+    min-width: 40vh;
+    height: 35px;
+}
+.label-description {
+    min-width: 40vh;
+    height: 100px;
+    vertical-align: top;
 }
