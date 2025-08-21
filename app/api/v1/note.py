@@ -12,7 +12,7 @@ router = APIRouter(
 )
 @router.get('/all-notes' , status_code=status.HTTP_200_OK)
 async def all_notes(db: Session =  Depends(get_db)):
-    print(db.query(models.Notes).all())
+    # print(db.query(models.Notes).all())
     return db.query(models.Notes).all()
 
 
@@ -22,13 +22,13 @@ async def homes(request: Request , db: Session =  Depends(get_db)):
     return template.TemplateResponse('index.html' , {'request':request , 'data':data})
 
 
-@router.post('/add' , status_code=status.HTTP_201_CREATED)
-async def add_notes(item_note: Optional[str] = Form(...), db: Session =  Depends(get_db)):
-    now_time = datetime.now()
-    q = models.Notes(note=item_note,datetime=now_time)
-    db.add(q)
+@router.post('/create-note' , status_code=status.HTTP_201_CREATED)
+async def add_notes(note_name: Optional[str] = Form(...), note_descriptions: Optional[str] = Form(...), db: Session =  Depends(get_db)):
+    # print(note_name, note_descriptions)
+    notes = models.Notes(note_name=note_name,note_descriptions=note_descriptions, datetime=datetime.now())
+    db.add(notes)
     db.commit()
-    db.refresh(q)
+    db.refresh(notes)
 
     return RedirectResponse('/',status_code=302)
 @router.post('/delete-note' , status_code=status.HTTP_204_NO_CONTENT)

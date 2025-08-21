@@ -17,12 +17,12 @@
     <div class="container">
         <div class="card">
             <div class="form-wrapper">
-                <form class="form-main" action="">
+                <form class="form-main" action="/create-note" method="post">
                     <div class="label">List Name</div>
-                    <input class="i-label-name" type="text" placeholder="What do you want to track?">
+                    <input class="i-label-name" name="note_name" type="text" placeholder="What do you want to track?">
                     <div class="example-label">Examples: "Groceries", "Project Tasks", "Weekend Plans", etc.</div>
                     <div class="label">Description (optional)</div>
-                    <textarea class="i-label-description" type="text" placeholder="Add a brief description of the list" spellcheck="false"></textarea>
+                    <textarea class="i-label-description" name="note_descriptions" type="text" placeholder="Add a brief description of the list" spellcheck="false"></textarea>
                     <button>Create</button>
                 </form>
             </div>

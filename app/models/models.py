@@ -6,11 +6,12 @@ from sqlalchemy.orm import relationship
 class Notes(Base):
     __tablename__ = 'notes'
     id = Column(Integer, primary_key=True, index=True)
-    note = Column(String)
     datetime = Column(Date)
-    user_id = Column(Integer, ForeignKey('users.id')) # Khóa ngoại của bảng users
+    note_name = Column(String)
+    note_descriptions = Column(String)
+    # user_id = Column(Integer, ForeignKey('users.id')) # Khóa ngoại của bảng users
 
-    creator = relationship('User',back_populates='notes')
+    # creator = relationship('User',back_populates='notes')
 
 class User(Base):
     __tablename__ = 'users'
@@ -20,4 +21,4 @@ class User(Base):
     username = Column(String)
     password =  Column(String)
 
-    notes = relationship('Notes', back_populates='creator')
+    # notes = relationship('Notes', back_populates='creator')
