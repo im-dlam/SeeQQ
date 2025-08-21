@@ -108,3 +108,12 @@ nav a{
     background-color: rgb(9, 9, 245);
 
 }
+.form-wrapper #success-message {
+    display: none;
+    background: rgba(49, 192, 49, 0.8);
+    color:white;
+    font-weight: bold;
+    padding:5px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
