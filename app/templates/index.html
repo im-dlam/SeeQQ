@@ -22,15 +22,12 @@
                 </div>
                 <form class="form-main" action="/create-note" method="post">
                     <div class="label">List Name</div>
-                    <input class="i-label-name" name="note_name" type="text" placeholder="What do you want to track?">
+                    <input class="i-label-name" name="note_name" type="text" placeholder="What do you want to track?" required>
                     <div class="example-label">Examples: "Groceries", "Project Tasks", "Weekend Plans", etc.</div>
                     <div class="label">Description (optional)</div>
-                    <textarea class="i-label-description" name="note_descriptions" type="text" placeholder="Add a brief description of the list" spellcheck="false"></textarea>
+                    <textarea class="i-label-description" name="note_descriptions" type="text" placeholder="Add a brief description of the list" spellcheck="false" required></textarea>
                     <button id="submit" type="submit">Create</button>
                 </form>
-            </div>
-            <div >
-                <button>Back to home</button>
             </div>
         </div>
     

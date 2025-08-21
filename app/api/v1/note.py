@@ -19,17 +19,15 @@ async def all_notes(db: Session =  Depends(get_db)):
 @router.get("/" , status_code=status.HTTP_200_OK)
 async def homes(request: Request , db: Session =  Depends(get_db)):
     data = db.query(models.Notes).all()
-    return template.TemplateResponse('index.html' , {'request':request , 'data':data})
+    return template.TemplateResponse('create_list.html' , {'request':request , 'data':data})
 
 
 @router.post('/create-note' , status_code=status.HTTP_201_CREATED)
 async def add_notes(note_name: Optional[str] = Form(...), note_descriptions: Optional[str] = Form(...), db: Session =  Depends(get_db)):
-    # print(note_name, note_descriptions)
     notes = models.Notes(note_name=note_name,note_descriptions=note_descriptions, datetime=datetime.now())
     db.add(notes)
     db.commit()
     db.refresh(notes)
-
     return RedirectResponse('/',status_code=302)
 @router.post('/delete-note' , status_code=status.HTTP_204_NO_CONTENT)
 async def delete_note(note_id: Optional[str] = Form(...),note_content: Optional[str] = Form(...), db: Session = Depends(get_db)):

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Tạo danh sách{% endblock %}
+{% block content%}
+
+<div class="container">
+    <div class="card">
+        <div class="form-wrapper">
+            <div id="success-message">
+                Tạo thành công!
+            </div>
+            <form class="form-main" action="/create-note" method="post">
+                <div class="label">List Name</div>
+                <input class="i-label-name" name="note_name" type="text" placeholder="What do you want to track?" required>
+                <div class="example-label">Examples: "Groceries", "Project Tasks", "Weekend Plans", etc.</div>
+                <div class="label">Description (optional)</div>
+                <textarea class="i-label-description" name="note_descriptions" type="text" placeholder="Add a brief description of the list" spellcheck="false" required></textarea>
+                <button id="submit" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
