@@ -31,7 +31,7 @@ nav a{
 .label {
     font-weight: 500;
     margin-bottom: 10px;
-    font-size:14px; 
+    font-size:16px; 
     color:rgb(97, 94, 94);
 
 }
@@ -46,14 +46,41 @@ nav a{
     padding-right: 46px;
     padding-top: 16px;
     padding-bottom: 16px;
+    min-height: 40vh;
 }
 
-.label-name {
-    min-width: 40vh;
-    height: 35px;
+.i-label-name {
+    height: 50px;
+    font-size: 18px;
+    color:black;
+    font-weight: bold;
+
+
 }
-.label-description {
-    min-width: 40vh;
+.i-label-name::placeholder {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.i-label-description {
     height: 100px;
-    vertical-align: top;
+    font-size: 16px;
+}
+
+.i-label-description::placeholder {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.i-label-name,
+.i-label-description {
+    min-width: 60vh;
+    border-radius: 10px;
+    outline: none;
+    border:0.4px solid rgb(211, 208, 208);
+    box-shadow: 0 2px 8px 0 rgba(34, 34, 68, 0.12);
+    margin-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 10px;
+    padding-top:6px;
+    padding-bottom:6px;
 }
