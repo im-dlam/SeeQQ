@@ -24,6 +24,7 @@ li {
     font-size: 1.1rem;
     color: #7a3eb1;
     transition: background 0.15s;
+    list-style: none;
 }
 
 li:last-child {
@@ -34,4 +35,10 @@ li:hover {
     background: #f3e6fa;
     color: #ae6dda;
     cursor:pointer
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

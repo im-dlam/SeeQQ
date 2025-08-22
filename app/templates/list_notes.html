@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Ghi chú của bạn {% endblock %}
+{% block content %}
+
+<div>
+    <ul>
+        <div class="container">
+            {% for note in notes %}
+            <li>
+                {{note.note_name}} | {{note.note_descriptions}}
+            </li>
+            {% endfor %}
+        </div>
+    </ul>
+</div>
+
+{% endblock %}

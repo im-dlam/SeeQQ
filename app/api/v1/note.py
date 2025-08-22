@@ -35,7 +35,7 @@ async def delete_note(note_id: Optional[str] = Form(...),note_content: Optional[
     deleting.delete(synchronize_session=False)
     db.commit()
     return {'status':200}
-@router.get("/my-notes" , status_code=status.HTTP_200_OK)
+@router.get("/list-notes" , status_code=status.HTTP_200_OK)
 async def my_notes(request: Request, db: Session =  Depends(get_db)):
     data = db.query(models.Notes).all()
-    return template.TemplateResponse('note.html' , {'request':request , 'notes':data})
+    return template.TemplateResponse('list_notes.html' , {'request':request , 'notes':data})
