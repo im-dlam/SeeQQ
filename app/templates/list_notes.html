@@ -1,20 +1,30 @@
 {% extends "base.html" %}
 {% block title %} Ghi chú của bạn {% endblock %}
 {% block head_css %}
-    <link rel="stylesheet" href="{{ url_for('static', path='css/note.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/list-note.css') }}">
 {% endblock %}
 {% block content %}
 
 
 <div class="container">
     <div class="card">
-        <ul>
-            {% for note in notes %}
-            <li>
-                {{note.note_name}} | {{note.note_descriptions}}
-            </li>
-            {% endfor %}
-        </ul>
+        <div class="container-head">
+            <div class="label-left">
+                <span>{{note.note_name}}</span>
+                <span>{{note.note_descriptions}}</span>
+            </div>
+            <div class="label-right">
+                <input id="filter" type="text" placeholder="Fillter " required>
+                <button id="action_btn">Action</button>
+            </div>
+        </div>
+        <div class="form-main">
+            <!-- <ul>
+                <li>
+                    {{note.note_name}} | {{note.note_descriptions}}<br>
+                </li>
+            </ul> -->
+        </div>
     </div>
 </div>
 

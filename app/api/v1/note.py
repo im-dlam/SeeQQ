@@ -28,14 +28,18 @@ async def add_notes(note_name: Optional[str] = Form(...), note_descriptions: Opt
     db.add(notes)
     db.commit()
     db.refresh(notes)
-    return RedirectResponse('/',status_code=302)
+    return RedirectResponse(f'/list-notes/{notes.id}',status_code=302)
 @router.post('/delete-note' , status_code=status.HTTP_204_NO_CONTENT)
 async def delete_note(note_id: Optional[str] = Form(...),note_content: Optional[str] = Form(...), db: Session = Depends(get_db)):
     deleting = db.query(models.Notes).filter(models.Notes.id == note_id and models.Notes.note == note_content)
     deleting.delete(synchronize_session=False)
     db.commit()
     return {'status':200}
-@router.get("/list-notes" , status_code=status.HTTP_200_OK)
-async def my_notes(request: Request, db: Session =  Depends(get_db)):
-    data = db.query(models.Notes).all()
-    return template.TemplateResponse('list_notes.html' , {'request':request , 'notes':data})
+
+@router.get("/list-notes/{id}" , status_code=status.HTTP_200_OK)
+async def my_notes(request: Request,id: int, db: Session =  Depends(get_db)):
+    data = db.query(models.Notes).filter(models.Notes.id == id).first()
+    if data:
+        return template.TemplateResponse('list_notes.html' , {'request':request , 'note':data})
+    
+    return template.TemplateResponse('list_notes.html' , {'request':request , 'note':data},status_code=status.HTTP_404_NOT_FOUND)
