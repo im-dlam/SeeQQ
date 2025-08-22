@@ -1,0 +1,104 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form-wrapper {
+    background-color: white;
+    margin-top: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(34, 34, 68, 0.12);
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    flex-direction: column;
+}
+.label {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size:16px; 
+    color:rgb(97, 94, 94);
+
+}
+.example-label {
+    font-size: 12px;
+    color:gray;
+    margin-top:5px;
+    margin-bottom:20px;
+}
+.form-main {
+    padding-left: 46px;
+    padding-right: 46px;
+    padding-top: 46px;
+    padding-bottom: 46px;
+}
+
+.i-label-name {
+    height: 50px;
+    font-size: 18px;
+    color:black;
+    font-weight: bold;
+
+
+}
+.i-label-name::placeholder {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.i-label-description {
+    height: 100px;
+    font-size: 16px;
+}
+
+.i-label-description::placeholder {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.i-label-name,
+.i-label-description {
+    min-width: 60vh;
+    border-radius: 10px;
+    outline: none;
+    border:0.4px solid rgb(211, 208, 208);
+    box-shadow: 0 2px 8px 0 rgba(34, 34, 68, 0.12);
+    margin-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 10px;
+    padding-top:6px;
+    padding-bottom:6px;
+}
+
+
+.form-main button {
+    display: block;
+    margin-top:20px;
+    margin-left: auto;
+    padding:10px 20px;
+    border:none;
+    font-size:16px;
+    background-color: rgb(73, 73, 255);
+    color:white;
+    font-weight: bold;
+    border-radius:8px;
+
+}
+
+.form-main button:hover {
+    background-color: rgb(43, 43, 247);
+    cursor: pointer;
+}
+.form-main button:active {
+    background-color: rgb(9, 9, 245);
+
+}
+.form-wrapper #success-message {
+    display: none;
+    background: rgba(49, 192, 49, 0.8);
+    color:white;
+    font-weight: bold;
+    padding:5px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
