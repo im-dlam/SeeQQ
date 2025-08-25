@@ -58,7 +58,7 @@
 }
 .i-label-name,
 .i-label-description {
-    min-width: 60vh;
+    min-width: 55vh;
     border-radius: 10px;
     outline: none;
     border:0.4px solid rgb(211, 208, 208);
@@ -70,6 +70,13 @@
     padding-bottom:6px;
 }
 
+@media (max-width: 800px ) {
+    .i-label-name,
+    .i-label-description {
+        min-width: unset;
+        width: 100%;
+    }
+}
 
 .form-main button {
     display: block;
@@ -102,3 +109,4 @@
     margin-top: 5px;
     border-radius: 5px;
 }
+
