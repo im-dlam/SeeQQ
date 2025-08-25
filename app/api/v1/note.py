@@ -39,7 +39,8 @@ async def delete_note(note_id: Optional[str] = Form(...),note_content: Optional[
 @router.get("/list-notes/{id}" , status_code=status.HTTP_200_OK)
 async def my_notes(request: Request,id: int, db: Session =  Depends(get_db)):
     data = db.query(models.Notes).filter(models.Notes.id == id).first()
-    if data:
-        return template.TemplateResponse('list_notes.html' , {'request':request , 'note':data})
+
+    status_code = status.HTTP_200_OK if data else status.HTTP_404_NOT_FOUND
     
-    return template.TemplateResponse('list_notes.html' , {'request':request , 'note':data},status_code=status.HTTP_404_NOT_FOUND)
+    return template.TemplateResponse('list_notes.html' , {'request':request , 'note':data}, status_code=status_code)
+    

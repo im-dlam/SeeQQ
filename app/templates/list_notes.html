@@ -10,8 +10,8 @@
     <div class="card">
         <div class="container-head">
             <div class="label-left">
-                <span>{{note.note_name}}</span>
-                <span>{{note.note_descriptions}}</span>
+                <span class="title">{{note.note_name}}</span>
+                <span class="description">{{note.note_descriptions}}</span>
             </div>
             <div class="label-right">
                 <input id="filter" type="text" placeholder="Fillter " required>
@@ -19,6 +19,25 @@
             </div>
         </div>
         <div class="form-main">
+            <div class="form-list">
+                <div class="button-right">
+                    <button>
+                        <i class="fa fa-rotate-right" style="color: #2596f2; margin-right:4px;"></i>
+                        Sort: Default
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-left: 4px;vertical-align: middle;">
+                            <path d="M5 8L10 13L15 8" stroke="#8B96A5" strokeWidth="2" strokeLinecap="round"strokeLinejoin="round"/>
+                         </svg>
+                    </button>
+
+                     <button>
+                        <i class="fa fa-rotate-right" style="color: #2596f2; margin-right:4px;"></i>
+                        Archive
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-left: 4px;vertical-align: middle;">
+                            <path d="M5 8L10 13L15 8" stroke="#8B96A5" strokeWidth="2" strokeLinecap="round"strokeLinejoin="round"/>
+                         </svg>
+                    </button>
+                </div>
+            </div>
             <!-- <ul>
                 <li>
                     {{note.note_name}} | {{note.note_descriptions}}<br>
