@@ -9,10 +9,16 @@ class Notes(Base):
     datetime = Column(Date)
     note_name = Column(String)
     note_descriptions = Column(String)
-    # user_id = Column(Integer, ForeignKey('users.id')) # Khóa ngoại của bảng users
+    note_id = Column(Integer , ForeignKey('works.id'))
 
     # creator = relationship('User',back_populates='notes')
-
+    work = relationship('Works', back_populates='notes')
+class Works(Base):
+    __tablename__ = 'works'
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    datetime = Column(Date)
+    notes = relationship('Notes', back_populates='work')
 class User(Base):
     __tablename__ = 'users'
 
