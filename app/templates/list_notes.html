@@ -14,7 +14,7 @@
                 <span class="description">{{note.note_descriptions}}</span>
             </div>
             <div class="label-right">
-                <input id="filter" type="text" placeholder="Fillter " required>
+                <!-- <input id="filter" type="text" placeholder="Fillter" required> -->
                 <button id="action_btn">Action</button>
             </div>
         </div>
@@ -45,8 +45,9 @@
                 
                 <div class="div-task">
                     <div class="work-name">
-                        <input id="work" type="text" placeholder="Add a new task" required>
-                        <button class="work-button">Add</button>
+                        <input id="work" type="text" placeholder="Add a new task">
+                        <input id="list-id" type="hidden" value="{{note.id}}">
+                        <button onclick="add_work()" class="work-button">Add</button>
                     </div>
                     <ul>
                         <li>
