@@ -22,10 +22,10 @@ async function list_work() {
     
         if (res.status !==  200) return ;
 
-        const data = res.json();
+        const data = await res.json();
         
         // Show list work
-        await list_work(data);
+        await list_items(data);
     }
     catch(e){
         return e;

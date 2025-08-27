@@ -47,12 +47,10 @@
                     <div class="work-name">
                         <input id="work" type="text" placeholder="Add a new task">
                         <input id="list-id" type="hidden" value="{{note.id}}">
-                        <button onclick="add_work()" class="work-button">Add</button>
+                        <button onclick="add_work()" id="submit" class="work-button">Add</button>
                     </div>
                     <ul id="list-works">
-                        <li>
-                            {{note.note_name}} | {{note.note_descriptions}}<br>
-                        </li>
+                        <!-- show list -->
                     </ul>
                 </div>
             </div>

@@ -19,12 +19,9 @@ async function list_items(list_works = []) {
     if(!ul){
         return "not found element";
     }
-
-    console.log(list_works);
-    // list_works.forEach(w => {
-    //     console.log(w);
-    //     let new_child = document.createElement('li');
-    //     new_child.textContent = w.name;
-    //     document.getElementById('list-works').appendChild(new_child)
-    // })
+    list_works.forEach(w => {
+        let new_child = document.createElement('li');
+        new_child.textContent = w.name;
+        document.getElementById('list-works').appendChild(new_child)
+    })
 }
