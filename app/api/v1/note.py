@@ -1,8 +1,8 @@
 from datetime import datetime
 from typing import Optional
-from fastapi import APIRouter, Form , status , Request , Depends 
+from fastapi import APIRouter, Form, HTTPException, Response , status , Request , Depends 
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse , RedirectResponse
+from fastapi.responses import HTMLResponse, JSONResponse , RedirectResponse
 from sqlalchemy.orm import Session
 from app.database.database import get_db
 from app.models import models , schemas
@@ -10,10 +10,15 @@ template = Jinja2Templates('app/templates')
 router = APIRouter(
     tags=["Notes"]
 )
-@router.get('/all-notes' , status_code=status.HTTP_200_OK)
-async def all_notes(db: Session =  Depends(get_db)):
-    # print(db.query(models.Notes).all())
-    return db.query(models.Notes).all()
+
+@router.get('/list-works/{id}' , status_code=status.HTTP_200_OK)
+async def all_notes(id:int ,db: Session =  Depends(get_db)):
+    query = db.query(models.Works).filter(models.Works.note_id == id).all()
+
+    if not query:
+        raise HTTPException(detail=[],status_code=status.HTTP_404_NOT_FOUND)
+    
+    return query
 
 
 @router.get("/" , status_code=status.HTTP_200_OK)
@@ -49,7 +54,8 @@ async def add_work(request: schemas.work , db: Session = Depends(get_db)):
             'id':work.id ,
             'name':work.name ,
             'datetime':work.datetime ,
-            'note_id':work.note_id}
+            'note_id':work.note_id
+            }
     }
 @router.get("/list-notes/{id}" , status_code=status.HTTP_200_OK)
 async def my_notes(request: Request,id: int, db: Session =  Depends(get_db)):

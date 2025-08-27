@@ -12,14 +12,19 @@ document.getElementById("submit").addEventListener('click' , () => {
 )
 
 
-async function add_work(){
-    let work = document.getElementById('work').value;
-    let note_id = document.getElementById('list-id').value;
-    if (!work) return;
-    const res = await fetch('/works', {
-        method: 'POST',
-        headers: {'Content-type':'application/json'},
-        body: JSON.stringify({id: note_id , name: work})
-    })
-    console.log(res.status , res.ok)
+
+async function list_items(list_works = []) {
+
+    const ul = document.getElementById('list-works');
+    if(!ul){
+        return "not found element";
+    }
+
+    console.log(list_works);
+    // list_works.forEach(w => {
+    //     console.log(w);
+    //     let new_child = document.createElement('li');
+    //     new_child.textContent = w.name;
+    //     document.getElementById('list-works').appendChild(new_child)
+    // })
 }

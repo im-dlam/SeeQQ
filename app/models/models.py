@@ -18,6 +18,7 @@ class Works(Base):
     datetime = Column(Date)
     note_id = Column(Integer , ForeignKey('notes.id'))
     notes = relationship('Notes', back_populates='work')
+    
 class User(Base):
     __tablename__ = 'users'
 
