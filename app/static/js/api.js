@@ -7,7 +7,7 @@ async function add_work(){
         headers: {'Content-type':'application/json'},
         body: JSON.stringify({id: note_id , name: work})
     })
-    console.log(res.status , res.ok)
+    window.location.reload();
 }
 
 
