@@ -21,7 +21,14 @@ async function list_items(list_works = []) {
     }
     list_works.forEach(w => {
         let new_child = document.createElement('li');
-        new_child.textContent = w.name;
-        document.getElementById('list-works').appendChild(new_child)
+        new_child.className = 'works';
+        
+        let span = document.createElement('span');
+        let radio = document.createElement('input');
+        radio.type = 'checkbox';
+        span.textContent = w.name;
+        new_child.appendChild(span);
+        new_child.appendChild(radio);
+        ul.appendChild(new_child)
     })
 }

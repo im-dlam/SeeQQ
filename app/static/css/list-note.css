@@ -146,3 +146,40 @@
     }
 }
 
+#list-works {
+    /* xóa padding mặc định của ul */
+    padding-left: 0;
+}
+#list-works li {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top:6px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#List-works li span {
+    flex: 1;
+    text-align: left;
+}
+
+#list-works input[type="checkbox"] {
+    height: 16px;
+    width:16px;
+    cursor: pointer;
+    border-radius: 4px;
+    appearance: none;
+    border:2px solid gray;
+
+}
+#list-works input[type="checkbox"]:checked {
+    background-color: rgb(124, 159, 255);
+    border-color: #7731e9;
+}
+
+#list-works input[type="checkbox"]:checked::after {
+    /* opacity: 1; */
+    pointer-events: none;
+}
