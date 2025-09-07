@@ -3,6 +3,7 @@ from typing import Optional
 from fastapi import APIRouter, Form, HTTPException, Response , status , Request , Depends 
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, JSONResponse , RedirectResponse
+from flask import request
 from sqlalchemy.orm import Session
 from app.database.database import get_db
 from app.models import models , schemas
@@ -65,3 +66,8 @@ async def my_notes(request: Request,id: int, db: Session =  Depends(get_db)):
     
     return template.TemplateResponse('list_notes.html' , {'request':request , 'note':data}, status_code=status_code)
     
+
+@router.get("/login" , status_code=200)
+async def login(request: Request):
+
+    return template.TemplateResponse('login.html' , {'request': request} , status_code=status.HTTP_200_OK)
