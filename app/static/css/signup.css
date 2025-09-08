@@ -6,11 +6,11 @@
     padding:20px 20px;
 }
 
-.login-form {
+.signup-form {
     background-color: white;
     padding:30px 30px;
 }
-.label-login {
+.label-signup {
     text-align: center;
     font-weight: bold;
     font-size: 14px;
@@ -25,7 +25,8 @@ form {
     font-size: 14px;
     color:rgb(92, 91, 91);
 }
-form #login {
+
+form #signup {
     padding:10px 20px;
     justify-content: center;
     border:none;
@@ -35,19 +36,18 @@ form #login {
     font-weight: bold;
     transition: margin-top 0.1s;
     cursor: pointer;
-    
 }
 
-
-form #login:hover {
+form #signup:hover {
     background-color: rgba(0, 0, 255, 0.877);
     margin-top: -3px;
     margin-bottom: 3px;
 }
 
-#login-containter {
+#signup-containter {
     display: flex;
     flex-direction: column;
+    margin-top: 30px;
 }
 #label-fw {
     margin-left: auto;
